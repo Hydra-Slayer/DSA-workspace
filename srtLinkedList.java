@@ -60,11 +60,6 @@ public class srtLinkedList {
         temp.next = current.next;
     }
     
-    
-    
-    
-    
-    
     public static void main(String[] args) {
         srtLinkedList srtlst = new srtLinkedList();
         srtlst.head = new ListNode(1);

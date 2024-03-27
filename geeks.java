@@ -1,22 +1,16 @@
-import java.util.*;
-class geeks {
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter a string: ");
-        String input = sc.nextLine();
-        String output = removeDuplicates(input);
-        System.out.println(output);
-        sc.close();
-        
-    }
-    public static String removeDuplicates(String input){
-        StringBuilder result = new StringBuilder();
-        for(int i = 0; i<input.length(); i++){
-            char currentChar = input.charAt(i);
-            if(result.indexOf(String.valueOf(currentChar)) == -1){
-                result.append(currentChar);
-            }
+
+
+public class geeks {
+    public static void main(String[] args) {
+        int num = 1554;
+        String s = String.valueOf(num);
+        String s2 = "1334 1445";
+        StringBuilder sb = new StringBuilder();
+        char[] sarr = s2.toCharArray();
+        for (int i = 0; i < sarr.length; i++) {
+            System.out.println(sarr[i]);
         }
-        return result.toString();
+        
+        
     }
 }
