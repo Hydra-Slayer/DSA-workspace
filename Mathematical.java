@@ -41,9 +41,15 @@ public class Mathematical{
         }
     }
     public static void allDivisors(int n){
-        for(int i = 1; i< n; i++){
+        for(int i = 1; i<= Math.sqrt(n); i++){
             if(n%i==0){
+                if(i == n/i){
+                    System.out.print(i);
+                    continue;
+                }
                 System.out.print(i);
+                System.out.print(" ");
+                System.out.print(n/i);
                 System.out.print(" ");
             }
         }
@@ -56,7 +62,7 @@ public class Mathematical{
         // gcd(10,15);
         // gcd_log(num1, num2);
         // armstrong(371);
-        allDivisors(num2);
+        allDivisors(36);
 
     }
 }
