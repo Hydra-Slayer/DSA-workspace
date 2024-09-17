@@ -54,15 +54,32 @@ public class Mathematical{
             }
         }
     }
+    public static void is_Prime(int n){
+        int count = 0;
+        for (int i = 1; i < Math.sqrt(n); i++) {
+            if(n%i==0){
+                count++;
+                if((n/i) != i){
+                    count++;
+                }
+            }
+            if(count == 2){
+                System.out.println("True");
+            }
+            else{
+                System.out.println("False");
+            }
+        }
+    }
     public static void main(String[] args) {
         // int gcd = 0;
         // int num1 = 10;
-        int num2 = 15;
+        // int num2 = 15;
         System.out.println();
         // gcd(10,15);
         // gcd_log(num1, num2);
         // armstrong(371);
         allDivisors(36);
-
+        is_Prime(7);
     }
 }
