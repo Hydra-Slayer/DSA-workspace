@@ -1,37 +1,11 @@
-class Solution {
-    public static void nStarTriangle(int n) {
-        // Write your code here
-        for(int i = 0; i<n; i++){
-            if(i%2==0){
-                for(int j = 0; j<=i; j++){
-                    if(j%2==0){
-                        System.out.print("1 ");
-                    }
-                    else{
-                        System.out.print("0 ");
-                    }
-                }
-            }
-            else{
-                for(int j = 0; j<=i; j++){
-                    if(j%2==0){
-                        System.out.print("0 ");
-                    }
-                    else{
-                        System.out.print("1 ");
-                    }
-                }
+public class patterns {
+    public static void main(String[] args) {
+        int n = 3;
+        for (int i = 0; i < 2 * n - 1; i++) {
+            for (int j = 0; j < 2 * n - 1; j++) {
+                System.out.print(n - Math.min(Math.min(i, j), Math.min(((2 * n - 2) - i), ((2 * n - 2) - j))) + " ");
             }
             System.out.println();
         }
     }
 }
-
-
-public class patterns {
-    public static void main(String[] args) {
-        Solution.nStarTriangle(3);
-    }
-}
-
-
