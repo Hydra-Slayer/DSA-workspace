@@ -1,19 +1,22 @@
-import java.util.HashMap;
+import java.util.Scanner;
 
 public class hashing {
     public static void main(String[] args) {
-        HashMap<Character, Integer> map = new HashMap<>();
-        String arr = "hello";
+        Scanner sc = new Scanner(System.in);
 
-        for (int i = 0; i < arr.length(); i++) {
-            if (map.get(arr.charAt(i)) == null) {
-                map.put(arr.charAt(i), 1);
-            } else {
-                map.put(arr.charAt(i), map.get(arr.charAt(i)) + 1);
-            }
+        String s;
+        s = sc.next();
+
+        // precompute:
+        int[] hash = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            hash[s.charAt(i) - 'a']++;
         }
-        System.out.println();
-        System.out.println(map);
+
+        char c;
+        c = sc.next().charAt(0);
+        // fetch:
+        System.out.println(hash[c - 'a']);
     }
 
 }
