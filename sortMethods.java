@@ -122,7 +122,57 @@ public class sortMethods {
             return;
         // Range reduced after recursion:
         recursiveBubble(arr, n - 1);
+    }
 
+    public static void recursiveInsertion(int[] arr, int n) {
+        // Best case T: O(N) S:O(1)
+        if (n <= 0) {
+            return;
+        }
+
+        recursiveInsertion(arr, n - 1);
+
+        int j = n;
+        while (j > 0 && arr[j] < arr[j - 1]) {
+            int temp = arr[j];
+            arr[j] = arr[j - 1];
+            arr[j - 1] = temp;
+            j--;
+        }
+    }
+
+    public class QuickSort {
+        public static void quickSort(int[] arr, int low, int high) {
+            if (low < high) {
+                // Partition the array
+                int pivotIndex = partition(arr, low, high);
+
+                // Recursively sort left and right subarrays
+                quickSort(arr, low, pivotIndex - 1);
+                quickSort(arr, pivotIndex + 1, high);
+            }
+        }
+
+        private static int partition(int[] arr, int low, int high) {
+            int pivot = arr[high]; // Choose last element as pivot
+            int i = low - 1; // Index of smaller element
+
+            for (int j = low; j < high; j++) {
+                if (arr[j] < pivot) {
+                    i++;
+                    // Swap arr[i] and arr[j]
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+            // Swap pivot (arr[high]) to its correct position
+            int temp = arr[i + 1];
+            arr[i + 1] = arr[high];
+            arr[high] = temp;
+
+            return i + 1; // Return pivot index
+        }
     }
 
     public static void main(String[] args) {
@@ -131,7 +181,9 @@ public class sortMethods {
         // bubbleSort(arr);
         // insertionSort(arr);
         // InnersortMethods.mergeSort(arr, 0, arr.length - 1);
-        recursiveBubble(arr, arr.length);
+        // recursiveBubble(arr, arr.length);
+        // recursiveInsertion(arr, arr.length - 1);
+        QuickSort.quickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
 }
