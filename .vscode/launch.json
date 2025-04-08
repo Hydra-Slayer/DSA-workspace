@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "arrays_easy",
+      "request": "launch",
+      "mainClass": "arrays_easy",
+      "projectName": "DSA workspace_c9f403a1"
+    },
+    {
+      "type": "java",
       "name": "recursion",
       "request": "launch",
       "mainClass": "recursion",
