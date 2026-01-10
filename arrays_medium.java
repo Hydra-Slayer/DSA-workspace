@@ -1,7 +1,7 @@
 import java.util.HashMap;
 
 public class arrays_medium {
-    public static void maxLenSub(int[] arr, long t) {
+    public static void maxLenSubWho(int[] arr, long t) {
         int sum = arr[0];
         int l = 0;
         int r = 0;
@@ -24,7 +24,7 @@ public class arrays_medium {
         System.out.println(max);
     }
 
-    public static void kadane(int[] arr, int t) {
+    public static void maxLenSubInt(int[] arr, int t) {
         int max = 0;
         int sum = 0;
         HashMap<Integer, Integer> preSumMap = new HashMap<>();
@@ -52,6 +52,6 @@ public class arrays_medium {
 
     public static void main(String[] args) {
         int[] arr = { -1, 1, 1 };
-        kadane(arr, 1);
+        maxLenSubInt(arr, 1);
     }
 }

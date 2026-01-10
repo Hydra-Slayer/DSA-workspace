@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class recursion {
+public class recursion2 {
     public static void show(int num) {
         if (num == 0) {
             return;
@@ -90,9 +90,9 @@ public class recursion {
         // printnasc(5);
         // sum(6, 0);
         // fact(5, 1);
-        // int[] arr = { 1, 2, 3, 4, 5 };
-        // reverseArray(arr, 0, 4);
-        // System.out.println(Arrays.toString(arr));
+        int[] arr = { 1, 2, 3, 4, 5 };
+        reverseArray(arr, 0, 4);
+        System.out.println(Arrays.toString(arr));
         // palindrome(0, "racecar");
     }
 }

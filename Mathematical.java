@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Mathematical {
     public static void count_digits(int n) {
@@ -78,5 +79,7 @@ public class Mathematical {
         // printDivisors(6);
         // count_digits(116);
         // isPrime(4);
+        HashMap<Integer> mp = new HashMap<>();
+        mp.put
     }
 }

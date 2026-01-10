@@ -3,9 +3,9 @@ import java.util.Arrays;
 public class arrays_easy {
     public static void min(int[] arr) {
         int min = Integer.MAX_VALUE;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < min) {
-                min = arr[i];
+        for (int n : arr) {
+            if (n <= min) {
+                min = n;
             }
         }
         System.out.println(min);
@@ -135,6 +135,6 @@ public class arrays_easy {
     public static void main(String[] args) {
         int[] arr = { 1, 0, 6, 7 };
         System.out.println();
-        maxConsecutive(arr, 0);
+        min(arr);
     }
 }

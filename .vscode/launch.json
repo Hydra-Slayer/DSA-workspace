@@ -6,6 +6,34 @@
   "configurations": [
     {
       "type": "java",
+      "name": "recursion2",
+      "request": "launch",
+      "mainClass": "recursion2",
+      "projectName": "DSA workspace_c9f403a1"
+    },
+    {
+      "type": "java",
+      "name": "maths",
+      "request": "launch",
+      "mainClass": "maths",
+      "projectName": "DSA workspace_c9f403a1"
+    },
+    {
+      "type": "java",
+      "name": "lower_bound",
+      "request": "launch",
+      "mainClass": "lower_bound",
+      "projectName": "DSA workspace_c9f403a1"
+    },
+    {
+      "type": "java",
+      "name": "tree",
+      "request": "launch",
+      "mainClass": "tree",
+      "projectName": "DSA workspace_c9f403a1"
+    },
+    {
+      "type": "java",
       "name": "arrays_medium",
       "request": "launch",
       "mainClass": "arrays_medium",
