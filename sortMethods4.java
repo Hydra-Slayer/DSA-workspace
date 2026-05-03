@@ -1,9 +1,11 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
-public class sortMethods {
+public class sortMethods4 {
 
     public static void selectionSort(int[] arr) {
         // selection sort - T:O(N**2) S:O(1)
+        // select the minimum and set it at the start
         for (int i = 0; i < arr.length; i++) {
             int min = Integer.MAX_VALUE;
             int idx = 0;
@@ -14,7 +16,7 @@ public class sortMethods {
                 }
             }
             int temp = arr[i];
-            arr[i] = min;
+            arr[i] = arr[idx];
             arr[idx] = temp;
         }
         System.out.println(Arrays.toString(arr));
@@ -22,79 +24,65 @@ public class sortMethods {
 
     public static void bubbleSort(int[] arr) {
         // Bubble Sort - T:O(N**2) S:O(1)
+        boolean swapped;
         for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = i; j < arr.length - 1; j++) {
+            swapped = false;
+            for (int j = 0; j < arr.length - 1 - i; j++) {
                 if (arr[j] > arr[j + 1]) {
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
+                    swapped = true;
                 }
             }
+            if (!swapped)
+                break;
         }
         System.out.println(Arrays.toString(arr));
     }
 
     public static void insertionSort(int[] arr) {
         // Insertion Sort - T:O(N**2) S:O(1)
-        for (int i = 0; i <= arr.length - 1; i++) {
-            int j = i;
-            while (j > 0 && arr[j] < arr[j - 1]) {
-                int temp = arr[j];
-                arr[j] = arr[j - 1];
-                arr[j - 1] = temp;
-                j--;
+        for (int i = 0; i < arr.length; i++) {
+            int key = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j--];
             }
+            arr[j + 1] = key;
         }
         System.out.println(Arrays.toString(arr));
     }
 
     public class InnersortMethods {
-        public static void mergeSort(int[] arr, int low, int high) {
-            // Merge Sort - T:O(N* logN) S:O(N)
-            if (low >= high) {
+        public static void mergeSort(int[] arr, int l, int h) {
+            if (l >= h) {
                 return;
             }
-            int mid = (low + high) / 2;
-            mergeSort(arr, low, mid);
-            mergeSort(arr, mid + 1, high);
-            merge(arr, low, mid, high);
+            int mid = (h + l) / 2;
+            mergeSort(arr, l, mid);
+            mergeSort(arr, mid + 1, h);
+            merge(arr, l, mid, h);
         }
 
-        private static void merge(int[] arr, int low, int mid, int high) {
-            int size1 = mid - low + 1;
-            int size2 = high - mid;
-            int[] arr1 = new int[size1];
-            int[] arr2 = new int[size2];
-
-            // Copy data to temporary arrays arr1[] and arr2[]
-            for (int i = 0; i < size1; i++) {
-                arr1[i] = arr[low + i];
-            }
-            for (int j = 0; j < size2; j++) {
-                arr2[j] = arr[mid + 1 + j];
-            }
-
-            // Initial indexes of the two subarrays and the merged subarray
-            int i = 0, j = 0, k = low;
-
-            // Merge the temporary arrays back into arr[low..high]. Directly adding back to
-            // orignal array instead of a new temp one.
-            while (i < size1 && j < size2) {
-                if (arr1[i] <= arr2[j]) {
-                    arr[k++] = arr1[i++];
+        private static void merge(int[] arr, int l, int m, int h) {
+            ArrayList<Integer> alist = new ArrayList<>();
+            int left = l, right = m + 1;
+            while (left <= m && right <= h) {
+                if (arr[left] < arr[right]) {
+                    alist.add(arr[left++]);
                 } else {
-                    arr[k++] = arr2[j++];
+                    alist.add(arr[right++]);
                 }
             }
-
-            // Copy any remaining elements of arr1[], if there are any
-            while (i < size1) {
-                arr[k++] = arr1[i++];
+            while (left <= m) {
+                alist.add(arr[left++]);
             }
-
-            // Copy any remaining elements of arr2[], if there are any
-            while (j < size2) {
-                arr[k++] = arr2[j++];
+            while (right <= h) {
+                alist.add(arr[right++]);
+            }
+            for (int i = l; i <= h; i++) {
+                arr[i] = alist.get(i - l);
             }
         }
     }
@@ -180,10 +168,10 @@ public class sortMethods {
         // selectionSort(arr);
         // bubbleSort(arr);
         // insertionSort(arr);
-        // InnersortMethods.mergeSort(arr, 0, arr.length - 1);
+        InnersortMethods.mergeSort(arr, 0, arr.length - 1);
         // recursiveBubble(arr, arr.length);
         // recursiveInsertion(arr, arr.length - 1);
-        QuickSort.quickSort(arr, 0, arr.length - 1);
+        // QuickSort.quickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
 }
